@@ -1,0 +1,6 @@
+interface:
+  display_name: "Huly CLI"
+  short_description: "Operate Huly projects and issues via npx"
+  default_prompt: "Use $huly-cli with npx to inspect and update Huly issues safely from the terminal."
+policy:
+  allow_implicit_invocation: true

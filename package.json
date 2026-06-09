@@ -1,0 +1,59 @@
+{
+  "name": "huly-cli",
+  "version": "0.1.0",
+  "description": "Command-line client for Huly built on top of huly-mcp.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "bin": {
+    "huly": "./dist/index.js",
+    "huly-cli": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "skills/huly-cli",
+    "README.md",
+    ".env.example"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm typecheck && rm -rf dist && esbuild src/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/index.js",
+    "test": "vitest run",
+    "smoke": "node scripts/smoke-cli.mjs",
+    "smoke:upstream": "node scripts/smoke-upstream.mjs",
+    "pack:dry": "pnpm pack --dry-run",
+    "prepack": "pnpm check",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "pnpm typecheck && pnpm test && pnpm build && pnpm smoke && pnpm smoke:upstream"
+  },
+  "keywords": [
+    "huly",
+    "cli",
+    "mcp",
+    "issue-tracker",
+    "project-management"
+  ],
+  "homepage": "https://github.com/zhenxin-dev/huly-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhenxin-dev/huly-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhenxin-dev/huly-cli/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@firfi/huly-mcp": "0.22.2",
+    "commander": "15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.1.0",
+    "esbuild": "0.28.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.8"
+  },
+  "packageManager": "pnpm@10.29.3"
+}

@@ -1,0 +1,132 @@
+name: Update huly-mcp
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    name: Update @firfi/huly-mcp
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      HULY_MCP_PACKAGE: "@firfi/huly-mcp"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.29.3 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check latest huly-mcp
+        id: versions
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          current="$(node -p "require('./package.json').dependencies[process.env.HULY_MCP_PACKAGE]")"
+          current="${current#^}"
+          current="${current#~}"
+          latest="$(npm view "$HULY_MCP_PACKAGE" version)"
+
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "latest=$latest" >> "$GITHUB_OUTPUT"
+
+          if [ "$current" = "$latest" ]; then
+            echo "update_available=false" >> "$GITHUB_OUTPUT"
+            echo "$HULY_MCP_PACKAGE is already up to date: $current"
+          else
+            echo "update_available=true" >> "$GITHUB_OUTPUT"
+            echo "$HULY_MCP_PACKAGE update available: $current -> $latest"
+          fi
+
+      - name: Update dependency
+        if: steps.versions.outputs.update_available == 'true'
+        run: pnpm add "$HULY_MCP_PACKAGE@${{ steps.versions.outputs.latest }}" --save-exact
+
+      - name: Verify update
+        if: steps.versions.outputs.update_available == 'true'
+        run: pnpm check
+
+      - name: Detect changed files
+        if: steps.versions.outputs.update_available == 'true'
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- package.json pnpm-lock.yaml; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No package files changed after update."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push update branch
+        if: steps.changes.outputs.changed == 'true'
+        id: branch
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          branch="chore/update-huly-mcp-${{ steps.versions.outputs.latest }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add package.json pnpm-lock.yaml
+          git commit -m "chore(deps): update huly-mcp to ${{ steps.versions.outputs.latest }}"
+          git push --force-with-lease origin "$branch"
+
+          echo "name=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          branch="${{ steps.branch.outputs.name }}"
+          title="chore(deps): update huly-mcp to ${{ steps.versions.outputs.latest }}"
+          body_file="$(mktemp)"
+
+          cat > "$body_file" <<'BODY'
+## Summary
+
+Updates `@firfi/huly-mcp`.
+
+## Verification
+
+- `pnpm check`
+BODY
+
+          if gh pr view "$branch" --json number >/tmp/huly-mcp-pr.json 2>/dev/null; then
+            pr_number="$(node -p "require('/tmp/huly-mcp-pr.json').number")"
+            gh pr edit "$pr_number" --title "$title" --body-file "$body_file"
+          else
+            gh pr create \
+              --head "$branch" \
+              --base "${{ github.event.repository.default_branch }}" \
+              --title "$title" \
+              --body-file "$body_file"
+          fi
