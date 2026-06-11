@@ -36,13 +36,13 @@
     "issue-tracker",
     "project-management"
   ],
-  "homepage": "https://github.com/zhenxin-dev/huly-cli#readme",
+  "homepage": "https://github.com/starhui-dev/huly-cli#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhenxin-dev/huly-cli.git"
+    "url": "git+https://github.com/starhui-dev/huly-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/zhenxin-dev/huly-cli/issues"
+    "url": "https://github.com/starhui-dev/huly-cli/issues"
   },
   "license": "MIT",
   "dependencies": {

@@ -1,50 +1,50 @@
 # huly-cli
 
-Command-line client for [Huly](https://huly.io/), powered by
-[`@firfi/huly-mcp`](https://github.com/dearlordylord/huly-mcp).
+基于 [`@firfi/huly-mcp`](https://github.com/dearlordylord/huly-mcp) 的
+[Huly](https://huly.io/) 命令行客户端。
 
-## Usage
+## 使用方式
 
-Run without installing:
+无需安装，直接通过 `npx` 运行：
 
 ```bash
 npx -y huly-cli@latest --help
 ```
 
-After global install:
+也可以全局安装后使用：
 
 ```bash
 npm install -g huly-cli
 huly --help
 ```
 
-## Configuration
+## 配置
 
-Set Huly configuration in environment variables or pass a dotenv-style file with `--config`.
+可以通过环境变量配置 Huly，也可以用 `--config` 指定 dotenv 格式的配置文件。
 
 ```bash
 cp .env.example .env
 ```
 
-Required values:
+必填配置：
 
 - `HULY_URL`
 - `HULY_WORKSPACE`
-- `HULY_TOKEN`, or `HULY_EMAIL` plus `HULY_PASSWORD`
+- `HULY_TOKEN`，或 `HULY_EMAIL` 加 `HULY_PASSWORD`
 
-Optional values:
+可选配置：
 
-- `HULY_DEFAULT_PROJECT`, used by `issue` commands when `--project` is omitted.
-- `HULY_CONNECTION_TIMEOUT`, passed through to `@firfi/huly-mcp`.
+- `HULY_DEFAULT_PROJECT`：`issue` 命令未传 `--project` 时使用的默认项目。
+- `HULY_CONNECTION_TIMEOUT`：透传给 `@firfi/huly-mcp` 的连接超时时间。
 
-The diagnostic commands below do not require Huly credentials:
+下面这些诊断命令不需要 Huly 凭据：
 
 ```bash
 npx -y huly-cli@latest context --json
 npx -y huly-cli@latest tools --filter issue --json
 ```
 
-## Examples
+## 示例
 
 ```bash
 npx -y huly-cli@latest --config .env project list --json
@@ -56,31 +56,49 @@ npx -y huly-cli@latest --config .env issue update HULY-123 --project HULY --stat
 npx -y huly-cli@latest --config .env search "login redirect" --json
 ```
 
-For tools that are not wrapped by a first-class command, call the upstream MCP tool directly:
+对于没有封装成一级命令的能力，可以直接调用上游 MCP 工具：
 
 ```bash
 npx -y huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
 npx -y huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
 ```
 
-## Commands
+## 命令
 
-- `context`: sanitized MCP/Huly runtime context.
-- `version-remote`: underlying `@firfi/huly-mcp` version information.
-- `tools`: list available upstream MCP tools.
-- `project list|get|statuses|create|update|delete`: tracker project operations.
-- `issue list|get|create|update|delete|label|unlabel|move`: common issue operations.
-- `search`: fulltext search.
-- `call`: raw access to every tool exposed by `@firfi/huly-mcp`.
+- `context`：输出脱敏后的 MCP/Huly 运行上下文。
+- `version-remote`：输出底层 `@firfi/huly-mcp` 版本信息。
+- `tools`：列出上游 MCP 暴露的工具。
+- `project list|get|statuses|create|update|delete`：项目相关操作。
+- `issue list|get|create|update|delete|label|unlabel|move`：常用 Issue 操作。
+- `search`：全文搜索。
+- `call`：直接调用 `@firfi/huly-mcp` 暴露的任意工具。
 
-Destructive commands ask for confirmation unless `--yes` is passed.
+删除、更新等破坏性命令默认会要求确认；传入 `--yes` 后跳过确认。
 
 ## Agent Skill
 
-This package includes a Codex/OpenAI skill at `skills/huly-cli/SKILL.md`.
-The skill examples use `npx -y huly-cli@latest` so agents can run the CLI without a local install.
+这个包内置 Codex/OpenAI skill，路径为 `skills/huly-cli/SKILL.md`。
+skill 示例使用 `npx -y huly-cli@latest`，方便 agent 在没有本地安装 CLI 的情况下直接运行。
 
-## Development
+使用 `skills` CLI 全局安装：
+
+```bash
+npx -y skills add starhui-dev/huly-cli --skill huly-cli --global
+```
+
+安装到当前项目时去掉 `--global`：
+
+```bash
+npx -y skills add starhui-dev/huly-cli --skill huly-cli
+```
+
+安装前查看仓库中可用的 skills：
+
+```bash
+npx -y skills add starhui-dev/huly-cli --list --full-depth
+```
+
+## 开发
 
 ```bash
 pnpm install
@@ -88,5 +106,5 @@ pnpm check
 pnpm pack --dry-run
 ```
 
-`pnpm check` runs typecheck, unit tests, build, local CLI smoke tests, and upstream MCP startup smoke tests.
-Real Huly read/write operations require valid Huly credentials and network access.
+`pnpm check` 会依次运行类型检查、单元测试、构建、本地 CLI 冒烟测试和上游 MCP 启动冒烟测试。
+真实的 Huly 读写操作需要有效的 Huly 凭据和网络连接。
