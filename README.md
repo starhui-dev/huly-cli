@@ -8,13 +8,13 @@
 无需安装，直接通过 `npx` 运行：
 
 ```bash
-npx -y huly-cli@latest --help
+npx -y @starhui/huly-cli@latest --help
 ```
 
 也可以全局安装后使用：
 
 ```bash
-npm install -g huly-cli
+npm install -g @starhui/huly-cli
 huly --help
 ```
 
@@ -40,27 +40,27 @@ cp .env.example .env
 下面这些诊断命令不需要 Huly 凭据：
 
 ```bash
-npx -y huly-cli@latest context --json
-npx -y huly-cli@latest tools --filter issue --json
+npx -y @starhui/huly-cli@latest context --json
+npx -y @starhui/huly-cli@latest tools --filter issue --json
 ```
 
 ## 示例
 
 ```bash
-npx -y huly-cli@latest --config .env project list --json
-npx -y huly-cli@latest --config .env project statuses HULY --json
-npx -y huly-cli@latest --config .env issue list --project HULY --status-category active --limit 20 --json
-npx -y huly-cli@latest --config .env issue get HULY-123 --project HULY --json
-npx -y huly-cli@latest --config .env issue create --project HULY --title "Fix login redirect"
-npx -y huly-cli@latest --config .env issue update HULY-123 --project HULY --status Done
-npx -y huly-cli@latest --config .env search "login redirect" --json
+npx -y @starhui/huly-cli@latest --config .env project list --json
+npx -y @starhui/huly-cli@latest --config .env project statuses HULY --json
+npx -y @starhui/huly-cli@latest --config .env issue list --project HULY --status-category active --limit 20 --json
+npx -y @starhui/huly-cli@latest --config .env issue get HULY-123 --project HULY --json
+npx -y @starhui/huly-cli@latest --config .env issue create --project HULY --title "Fix login redirect"
+npx -y @starhui/huly-cli@latest --config .env issue update HULY-123 --project HULY --status Done
+npx -y @starhui/huly-cli@latest --config .env search "login redirect" --json
 ```
 
 对于没有封装成一级命令的能力，可以直接调用上游 MCP 工具：
 
 ```bash
-npx -y huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
-npx -y huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
+npx -y @starhui/huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
+npx -y @starhui/huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
 ```
 
 ## 命令
@@ -78,7 +78,7 @@ npx -y huly-cli@latest --config .env call get_issue --field project=HULY --field
 ## Agent Skill
 
 这个包内置 Codex/OpenAI skill，路径为 `skills/huly-cli/SKILL.md`。
-skill 示例使用 `npx -y huly-cli@latest`，方便 agent 在没有本地安装 CLI 的情况下直接运行。
+skill 示例使用 `npx -y @starhui/huly-cli@latest`，方便 agent 在没有本地安装 CLI 的情况下直接运行。
 
 使用 `skills` CLI 全局安装：
 

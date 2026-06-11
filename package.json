@@ -1,5 +1,5 @@
 {
-  "name": "huly-cli",
+  "name": "@starhui/huly-cli",
   "version": "0.1.0",
   "description": "Command-line client for Huly built on top of huly-mcp.",
   "type": "module",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@firfi/huly-mcp": "0.22.2",
+    "@firfi/huly-mcp": "0.29.0",
     "commander": "15.0.0"
   },
   "devDependencies": {

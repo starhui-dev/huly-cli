@@ -5,7 +5,7 @@ description: Use this skill when the user wants to inspect or change Huly data f
 
 # Huly CLI
 
-Use `npx -y huly-cli@latest` to work with Huly through `@firfi/huly-mcp`.
+Use `npx -y @starhui/huly-cli@latest` to work with Huly through `@firfi/huly-mcp`.
 
 For local development inside this repository, `huly` is also acceptable after `pnpm build && pnpm link --global`.
 
@@ -13,51 +13,51 @@ For local development inside this repository, `huly` is also acceptable after `p
 
 1. Confirm the CLI is available:
    ```bash
-   npx -y huly-cli@latest --version
+   npx -y @starhui/huly-cli@latest --version
    ```
 2. Prefer explicit config:
    ```bash
-   npx -y huly-cli@latest --config .env context
+   npx -y @starhui/huly-cli@latest --config .env context
    ```
 3. If project is omitted for issue commands, set `HULY_DEFAULT_PROJECT` or pass `--project`.
 
-Never print real tokens, passwords, or full `.env` contents. `npx -y huly-cli@latest context` is safe because it returns sanitized config.
+Never print real tokens, passwords, or full `.env` contents. `npx -y @starhui/huly-cli@latest context` is safe because it returns sanitized config.
 
 ## Common Commands
 
 List projects:
 ```bash
-npx -y huly-cli@latest --config .env project list --json
+npx -y @starhui/huly-cli@latest --config .env project list --json
 ```
 
 Discover statuses before creating or updating issues:
 ```bash
-npx -y huly-cli@latest --config .env project statuses HULY --json
+npx -y @starhui/huly-cli@latest --config .env project statuses HULY --json
 ```
 
 List issues:
 ```bash
-npx -y huly-cli@latest --config .env issue list --project HULY --status-category active --limit 20 --json
+npx -y @starhui/huly-cli@latest --config .env issue list --project HULY --status-category active --limit 20 --json
 ```
 
 Get an issue:
 ```bash
-npx -y huly-cli@latest --config .env issue get HULY-123 --project HULY --json
+npx -y @starhui/huly-cli@latest --config .env issue get HULY-123 --project HULY --json
 ```
 
 Create an issue:
 ```bash
-npx -y huly-cli@latest --config .env issue create --project HULY --title "Short imperative title" --description "Markdown body"
+npx -y @starhui/huly-cli@latest --config .env issue create --project HULY --title "Short imperative title" --description "Markdown body"
 ```
 
 Update an issue:
 ```bash
-npx -y huly-cli@latest --config .env issue update HULY-123 --project HULY --status Done
+npx -y @starhui/huly-cli@latest --config .env issue update HULY-123 --project HULY --status Done
 ```
 
 Search:
 ```bash
-npx -y huly-cli@latest --config .env search "query text" --limit 10 --json
+npx -y @starhui/huly-cli@latest --config .env search "query text" --limit 10 --json
 ```
 
 ## Raw Tool Access
@@ -65,9 +65,9 @@ npx -y huly-cli@latest --config .env search "query text" --limit 10 --json
 Use raw calls when the first-class CLI does not expose an upstream MCP tool:
 
 ```bash
-npx -y huly-cli@latest --config .env tools --filter document
-npx -y huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
-npx -y huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
+npx -y @starhui/huly-cli@latest --config .env tools --filter document
+npx -y @starhui/huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
+npx -y @starhui/huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
 ```
 
 `--field key=value` coerces `true`, `false`, `null`, and numbers. Use `--data` or `--file` for nested JSON.
@@ -78,7 +78,7 @@ npx -y huly-cli@latest --config .env call list_projects --data '{"limit":10}' --
 - Read before write: inspect the project/status/issue before mutating it unless the user gave exact values.
 - Destructive commands require confirmation; only pass `--yes` when the user explicitly requested deletion.
 - Prefer status names from `project statuses`; do not invent workflow statuses.
-- If a command fails due to auth/config, report the missing sanitized fields from `npx -y huly-cli@latest --config .env context`; do not expose secrets.
+- If a command fails due to auth/config, report the missing sanitized fields from `npx -y @starhui/huly-cli@latest --config .env context`; do not expose secrets.
 
 ## Useful Mapping
 
