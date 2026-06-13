@@ -105,12 +105,6 @@ jobs:
         if: steps.versions.outputs.update_available == 'true' || steps.versions.outputs.current_cli_published != 'true'
         run: pnpm check
 
-      - name: Verify npm authentication
-        if: steps.versions.outputs.update_available == 'true' || steps.versions.outputs.current_cli_published != 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm whoami
-
       - name: Commit and tag release
         if: steps.versions.outputs.update_available == 'true' || steps.versions.outputs.current_cli_published != 'true'
         id: release
@@ -140,9 +134,29 @@ jobs:
 
       - name: Publish to npm
         if: steps.versions.outputs.update_available == 'true' || steps.versions.outputs.current_cli_published != 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm publish --access public --provenance --no-git-checks
+
+      - name: Create GitHub release
+        if: steps.versions.outputs.update_available == 'true' || steps.versions.outputs.current_cli_published != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="${{ steps.release.outputs.version }}"
+          tag="v$version"
+          notes="Published @starhui/huly-cli@$version to npm."
+
+          if [ "${{ steps.versions.outputs.update_available }}" = "true" ]; then
+            notes="$notes\n\nUpdated @firfi/huly-mcp from ${{ steps.versions.outputs.current_mcp }} to ${{ steps.versions.outputs.latest_mcp }}."
+          fi
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release edit "$tag" --title "$tag" --latest --notes "$notes"
+          else
+            gh release create "$tag" --title "$tag" --latest --notes "$notes"
+          fi
 
       - name: No update needed
         if: steps.versions.outputs.update_available != 'true' && steps.versions.outputs.current_cli_published == 'true'
