@@ -3,28 +3,13 @@ name: Publish npm
 on:
   workflow_dispatch:
     inputs:
-      version_type:
-        description: "npm version bump type"
+      force_update:
+        description: "Check and publish only if @firfi/huly-mcp has a newer version"
         required: true
-        default: patch
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
+        default: true
+        type: boolean
   schedule:
     - cron: "17 2 * * *"
-  push:
-    branches:
-      - main
-    paths:
-      - package.json
-      - pnpm-lock.yaml
-      - src/**
-      - scripts/**
-      - test/**
-      - skills/**
-      - README.md
 
 permissions:
   contents: write
@@ -36,9 +21,8 @@ concurrency:
 
 jobs:
   publish:
-    name: Update, bump, and publish npm package
+    name: Update huly-mcp and publish npm package
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
     env:
       HULY_MCP_PACKAGE: "@firfi/huly-mcp"
 
@@ -70,7 +54,6 @@ jobs:
 
           package_name="$(node -p "require('./package.json').name")"
           current="$(node -p "require('./package.json').version")"
-          published="$(npm view "$package_name" version 2>/dev/null || true)"
           current_mcp="$(node -p "require('./package.json').dependencies[process.env.HULY_MCP_PACKAGE]")"
           current_mcp="${current_mcp#^}"
           current_mcp="${current_mcp#~}"
@@ -78,17 +61,9 @@ jobs:
 
           echo "package_name=$package_name" >> "$GITHUB_OUTPUT"
           echo "current=$current" >> "$GITHUB_OUTPUT"
-          echo "published=$published" >> "$GITHUB_OUTPUT"
           echo "current_mcp=$current_mcp" >> "$GITHUB_OUTPUT"
           echo "latest_mcp=$latest_mcp" >> "$GITHUB_OUTPUT"
-
-          if [ -n "$published" ] && [ "$current" != "$published" ]; then
-            echo "current_unpublished=true" >> "$GITHUB_OUTPUT"
-            echo "$package_name@$current is not published yet; publishing without another bump."
-          else
-            echo "current_unpublished=false" >> "$GITHUB_OUTPUT"
-            echo "$package_name current=$current published=${published:-none}; bumping before publish."
-          fi
+          echo "$package_name current CLI version: $current"
 
           if [ "$current_mcp" = "$latest_mcp" ]; then
             echo "mcp_update_available=false" >> "$GITHUB_OUTPUT"
@@ -98,44 +73,66 @@ jobs:
             echo "$HULY_MCP_PACKAGE update available: $current_mcp -> $latest_mcp"
           fi
 
+      - name: Stop when huly-mcp is current
+        if: steps.versions.outputs.mcp_update_available != 'true'
+        run: echo "@firfi/huly-mcp is already current; no CLI release needed."
+
       - name: Update huly-mcp dependency
-        if: github.event_name == 'schedule' && steps.versions.outputs.mcp_update_available == 'true'
+        if: steps.versions.outputs.mcp_update_available == 'true'
         run: pnpm add "$HULY_MCP_PACKAGE@${{ steps.versions.outputs.latest_mcp }}" --save-exact
 
+      - name: Determine CLI bump type
+        if: steps.versions.outputs.mcp_update_available == 'true'
+        id: bump_type
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          current="${{ steps.versions.outputs.current_mcp }}"
+          latest="${{ steps.versions.outputs.latest_mcp }}"
+          current_major="${current%%.*}"
+          latest_major="${latest%%.*}"
+          current_rest="${current#*.}"
+          latest_rest="${latest#*.}"
+          current_minor="${current_rest%%.*}"
+          latest_minor="${latest_rest%%.*}"
+
+          if [ "$current_major" != "$latest_major" ]; then
+            bump_type="major"
+          elif [ "$current_minor" != "$latest_minor" ]; then
+            bump_type="minor"
+          else
+            bump_type="patch"
+          fi
+
+          echo "value=$bump_type" >> "$GITHUB_OUTPUT"
+          echo "MCP update $current -> $latest maps to CLI $bump_type release."
+
       - name: Bump package version
-        if: steps.versions.outputs.current_unpublished != 'true'
+        if: steps.versions.outputs.mcp_update_available == 'true'
         id: bump
         shell: bash
         run: |
           set -euo pipefail
 
-          bump_type="${{ github.event.inputs.version_type || 'patch' }}"
+          bump_type="${{ steps.bump_type.outputs.value }}"
           npm version "$bump_type" --no-git-tag-version
           version="$(node -p "require('./package.json').version")"
 
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "Bumped to $version"
 
-      - name: Use current unpublished version
-        if: steps.versions.outputs.current_unpublished == 'true'
-        id: current
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          version="$(node -p "require('./package.json').version")"
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "Publishing existing unpublished version $version"
-
       - name: Verify package
+        if: steps.versions.outputs.mcp_update_available == 'true'
         run: pnpm check
 
       - name: Commit version bump
+        if: steps.versions.outputs.mcp_update_available == 'true'
         shell: bash
         run: |
           set -euo pipefail
 
-          version="${{ steps.bump.outputs.version || steps.current.outputs.version }}"
+          version="${{ steps.bump.outputs.version }}"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -152,16 +149,18 @@ jobs:
           git push origin HEAD:main "v$version"
 
       - name: Publish to npm
+        if: steps.versions.outputs.mcp_update_available == 'true'
         run: pnpm publish --access public --provenance --no-git-checks
 
       - name: Create GitHub release
+        if: steps.versions.outputs.mcp_update_available == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
 
-          version="${{ steps.bump.outputs.version || steps.current.outputs.version }}"
+          version="${{ steps.bump.outputs.version }}"
           tag="v$version"
           notes="Published @starhui/huly-cli@$version to npm."
 

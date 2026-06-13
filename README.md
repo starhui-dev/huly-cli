@@ -103,7 +103,9 @@ npx -y skills add starhui-dev/huly-cli --list --full-depth
 
 仓库内置 GitHub Actions：
 
-- `Publish npm`：推送到 `main`、手动触发或每天定时运行；定时运行会先检查 `@firfi/huly-mcp` 最新版本，发现更新后自动更新依赖、patch bump CLI 版本、运行 `pnpm check`、打 tag、发布 `@starhui/huly-cli` 并创建 GitHub Release。
+- `Publish npm`：手动触发或每天定时运行；只在 `@firfi/huly-mcp` 有新版本时发布新版 CLI。
+- MCP patch 更新会发布 CLI patch 版本，MCP minor 更新会发布 CLI minor 版本，MCP major 更新会发布 CLI major 版本。
+- 没有 MCP 更新时，workflow 只输出“无需发布”，不会 bump CLI 版本，也不会发布 npm。
 
 自动发布使用 npm Trusted Publishing。需要在 npm 包设置中添加 GitHub trusted publisher：
 
