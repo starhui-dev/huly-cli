@@ -103,19 +103,12 @@ npx -y skills add starhui-dev/huly-cli --list --full-depth
 
 仓库内置 GitHub Actions：
 
-- `Update huly-mcp`：每天定时检查 `@firfi/huly-mcp` 最新版本；发现更新后自动更新依赖、patch bump CLI 版本、运行 `pnpm check`、打 tag，并发布 `@starhui/huly-cli`。
-- `Publish npm`：推送到 `main` 或手动触发时自动发布新版；发布提交会带 `[skip ci]` 防止循环触发。
+- `Publish npm`：推送到 `main`、手动触发或每天定时运行；定时运行会先检查 `@firfi/huly-mcp` 最新版本，发现更新后自动更新依赖、patch bump CLI 版本、运行 `pnpm check`、打 tag、发布 `@starhui/huly-cli` 并创建 GitHub Release。
 
 自动发布使用 npm Trusted Publishing。需要在 npm 包设置中添加 GitHub trusted publisher：
 
 - 仓库：`starhui-dev/huly-cli`
 - Workflow：`publish-npm.yml`
-- Environment：留空，除非之后在 workflow 中显式配置 GitHub environment
-
-`Update huly-mcp` 也会发布自动更新后的 CLI 版本，因此 npm 包里还需要再添加一个 trusted publisher：
-
-- 仓库：`starhui-dev/huly-cli`
-- Workflow：`update-huly-mcp.yml`
 - Environment：留空，除非之后在 workflow 中显式配置 GitHub environment
 
 ## 开发

@@ -12,6 +12,8 @@ on:
           - patch
           - minor
           - major
+  schedule:
+    - cron: "17 2 * * *"
   push:
     branches:
       - main
@@ -34,9 +36,11 @@ concurrency:
 
 jobs:
   publish:
-    name: Bump and publish npm package
+    name: Update, bump, and publish npm package
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
+    env:
+      HULY_MCP_PACKAGE: "@firfi/huly-mcp"
 
     steps:
       - name: Checkout
@@ -58,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check published version
+      - name: Check versions
         id: versions
         shell: bash
         run: |
@@ -67,10 +71,16 @@ jobs:
           package_name="$(node -p "require('./package.json').name")"
           current="$(node -p "require('./package.json').version")"
           published="$(npm view "$package_name" version 2>/dev/null || true)"
+          current_mcp="$(node -p "require('./package.json').dependencies[process.env.HULY_MCP_PACKAGE]")"
+          current_mcp="${current_mcp#^}"
+          current_mcp="${current_mcp#~}"
+          latest_mcp="$(npm view "$HULY_MCP_PACKAGE" version)"
 
           echo "package_name=$package_name" >> "$GITHUB_OUTPUT"
           echo "current=$current" >> "$GITHUB_OUTPUT"
           echo "published=$published" >> "$GITHUB_OUTPUT"
+          echo "current_mcp=$current_mcp" >> "$GITHUB_OUTPUT"
+          echo "latest_mcp=$latest_mcp" >> "$GITHUB_OUTPUT"
 
           if [ -n "$published" ] && [ "$current" != "$published" ]; then
             echo "current_unpublished=true" >> "$GITHUB_OUTPUT"
@@ -79,6 +89,18 @@ jobs:
             echo "current_unpublished=false" >> "$GITHUB_OUTPUT"
             echo "$package_name current=$current published=${published:-none}; bumping before publish."
           fi
+
+          if [ "$current_mcp" = "$latest_mcp" ]; then
+            echo "mcp_update_available=false" >> "$GITHUB_OUTPUT"
+            echo "$HULY_MCP_PACKAGE is already up to date: $current_mcp"
+          else
+            echo "mcp_update_available=true" >> "$GITHUB_OUTPUT"
+            echo "$HULY_MCP_PACKAGE update available: $current_mcp -> $latest_mcp"
+          fi
+
+      - name: Update huly-mcp dependency
+        if: github.event_name == 'schedule' && steps.versions.outputs.mcp_update_available == 'true'
+        run: pnpm add "$HULY_MCP_PACKAGE@${{ steps.versions.outputs.latest_mcp }}" --save-exact
 
       - name: Bump package version
         if: steps.versions.outputs.current_unpublished != 'true'
@@ -118,8 +140,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if ! git diff --quiet -- package.json; then
-            git add package.json
+          if ! git diff --quiet -- package.json pnpm-lock.yaml; then
+            git add package.json pnpm-lock.yaml
             git commit -m "chore(release): v$version [skip ci]"
           fi
 
@@ -141,9 +163,14 @@ jobs:
 
           version="${{ steps.bump.outputs.version || steps.current.outputs.version }}"
           tag="v$version"
+          notes="Published @starhui/huly-cli@$version to npm."
+
+          if [ "${{ steps.versions.outputs.mcp_update_available }}" = "true" ]; then
+            notes="$notes\n\nUpdated @firfi/huly-mcp from ${{ steps.versions.outputs.current_mcp }} to ${{ steps.versions.outputs.latest_mcp }}."
+          fi
 
           if gh release view "$tag" >/dev/null 2>&1; then
-            gh release edit "$tag" --title "$tag" --latest --notes "Published @starhui/huly-cli@$version to npm."
+            gh release edit "$tag" --title "$tag" --latest --notes "$notes"
           else
-            gh release create "$tag" --title "$tag" --latest --notes "Published @starhui/huly-cli@$version to npm."
+            gh release create "$tag" --title "$tag" --latest --notes "$notes"
           fi
