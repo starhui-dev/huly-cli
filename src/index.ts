@@ -2,13 +2,14 @@
 import { Command } from "commander"
 
 import { registerCommands } from "./commands.js"
+import { cliVersion } from "./package-info.js"
 
 const program = new Command()
 
 program
   .name("huly")
   .description("Huly command-line client powered by @firfi/huly-mcp")
-  .version("0.1.0")
+  .version(cliVersion)
   .option("--config <path>", "Load Huly env vars from a dotenv-style file")
   .option("--json", "Print JSON output")
   .showHelpAfterError()

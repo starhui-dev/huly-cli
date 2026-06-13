@@ -1,0 +1,128 @@
+name: Publish npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: "npm version bump type"
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Bump and publish npm package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.29.3 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check published version
+        id: versions
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          package_name="$(node -p "require('./package.json').name")"
+          current="$(node -p "require('./package.json').version")"
+          published="$(npm view "$package_name" version 2>/dev/null || true)"
+
+          echo "package_name=$package_name" >> "$GITHUB_OUTPUT"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+
+          if [ -n "$published" ] && [ "$current" != "$published" ]; then
+            echo "current_unpublished=true" >> "$GITHUB_OUTPUT"
+            echo "$package_name@$current is not published yet; publishing without another bump."
+          else
+            echo "current_unpublished=false" >> "$GITHUB_OUTPUT"
+            echo "$package_name current=$current published=${published:-none}; bumping before publish."
+          fi
+
+      - name: Bump package version
+        if: steps.versions.outputs.current_unpublished != 'true'
+        id: bump
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          bump_type="${{ github.event.inputs.version_type || 'patch' }}"
+          npm version "$bump_type" --no-git-tag-version
+          version="$(node -p "require('./package.json').version")"
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Bumped to $version"
+
+      - name: Use current unpublished version
+        if: steps.versions.outputs.current_unpublished == 'true'
+        id: current
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="$(node -p "require('./package.json').version")"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Publishing existing unpublished version $version"
+
+      - name: Verify package
+        run: pnpm check
+
+      - name: Verify npm authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm whoami
+
+      - name: Commit version bump
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="${{ steps.bump.outputs.version || steps.current.outputs.version }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if ! git diff --quiet -- package.json; then
+            git add package.json
+            git commit -m "chore(release): v$version [skip ci]"
+          fi
+
+          if ! git rev-parse "v$version" >/dev/null 2>&1; then
+            git tag "v$version"
+          fi
+
+          git push origin HEAD:main --follow-tags
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --provenance --no-git-checks

@@ -3,6 +3,7 @@ import { createRequire } from "node:module"
 
 import type { HulyCliConfig } from "./config.js"
 import { isRecord } from "./json.js"
+import { cliPackageName, cliVersion } from "./package-info.js"
 
 export interface HulyTool {
   readonly name: string
@@ -42,8 +43,8 @@ export const createHulyMcpClient = async (config: HulyCliConfig): Promise<HulyMc
     protocolVersion: "2025-06-18",
     capabilities: {},
     clientInfo: {
-      name: "huly-cli",
-      version: "0.1.0"
+      name: cliPackageName,
+      version: cliVersion
     }
   })
   await transport.notify("notifications/initialized", {})

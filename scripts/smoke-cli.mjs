@@ -3,6 +3,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join, resolve } from "node:path"
 import { deepStrictEqual, strictEqual } from "node:assert"
+import packageJson from "../package.json" with { type: "json" }
 
 const repo = resolve(import.meta.dirname, "..")
 const cli = join(repo, "dist/index.js")
@@ -60,6 +61,10 @@ const expectTool = async (args, tool, expectedArgs) => {
 }
 
 await run(["--help"])
+{
+  const { stdout } = await run(["--version"])
+  strictEqual(stdout.trim(), packageJson.version)
+}
 
 await expectTool(["context"], "get_huly_context", {})
 await expectTool(["version-remote"], "get_version", {})
