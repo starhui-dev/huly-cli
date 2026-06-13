@@ -66,6 +66,7 @@ npx -y @starhui/huly-cli@latest --config .env call get_issue --field project=HUL
 ## 命令
 
 - `context`：输出脱敏后的 MCP/Huly 运行上下文。
+- `--version`：输出 CLI 包名、CLI 版本、内置 `@firfi/huly-mcp` 版本和 Node.js 版本。
 - `version-remote`：输出底层 `@firfi/huly-mcp` 版本信息。
 - `tools`：列出上游 MCP 暴露的工具。
 - `project list|get|statuses|create|update|delete`：项目相关操作。
@@ -103,7 +104,7 @@ npx -y skills add starhui-dev/huly-cli --list --full-depth
 仓库内置 GitHub Actions：
 
 - `Update huly-mcp`：每天定时检查 `@firfi/huly-mcp` 最新版本；发现更新后自动更新依赖、patch bump CLI 版本、运行 `pnpm check`、打 tag，并发布 `@starhui/huly-cli`。
-- `Publish npm`：手动触发的发布 workflow，用于不依赖 MCP 更新时主动发新版。
+- `Publish npm`：推送到 `main` 或手动触发时自动发布新版；发布提交会带 `[skip ci]` 防止循环触发。
 
 发布到 npm 需要在 GitHub 仓库 Secrets 中配置 `NPM_TOKEN`，并确保 npm token 对 `@starhui/huly-cli` 有发布权限。
 

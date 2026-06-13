@@ -63,7 +63,9 @@ const expectTool = async (args, tool, expectedArgs) => {
 await run(["--help"])
 {
   const { stdout } = await run(["--version"])
-  strictEqual(stdout.trim(), packageJson.version)
+  strictEqual(stdout.includes(`${packageJson.name} ${packageJson.version}`), true)
+  strictEqual(stdout.includes(`@firfi/huly-mcp ${packageJson.dependencies["@firfi/huly-mcp"]}`), true)
+  strictEqual(stdout.includes(`node ${process.version}`), true)
 }
 
 await expectTool(["context"], "get_huly_context", {})

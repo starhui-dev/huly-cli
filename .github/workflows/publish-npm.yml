@@ -12,6 +12,17 @@ on:
           - patch
           - minor
           - major
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - pnpm-lock.yaml
+      - src/**
+      - scripts/**
+      - test/**
+      - skills/**
+      - README.md
 
 permissions:
   contents: write
@@ -25,6 +36,7 @@ jobs:
   publish:
     name: Bump and publish npm package
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip ci]') }}
 
     steps:
       - name: Checkout
