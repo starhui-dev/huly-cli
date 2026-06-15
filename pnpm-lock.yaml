@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@firfi/huly-mcp':
-        specifier: 0.31.1
-        version: 0.31.1
+        specifier: 0.32.0
+        version: 0.32.0
       commander:
         specifier: 15.0.0
         version: 15.0.0
@@ -195,8 +195,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firfi/huly-mcp@0.31.1':
-    resolution: {integrity: sha512-FlVmk6+cQKUV5H743oqGo9LSWMquI/VkWZlEY925nKHrxOQ/tbCK7Oaz8f9c/LzkUqibVTNvDyNUFtNoQpX6Vw==}
+  '@firfi/huly-mcp@0.32.0':
+    resolution: {integrity: sha512-tY9mw+TAINaQ9NdUlMcrzbY8wMu9GS/8B8J7WAPpB9d+xj6yiAvwF998MOzVl7R1AQ23wEW3dfxOsNuo9ypbDw==}
     hasBin: true
 
   '@jridgewell/sourcemap-codec@1.5.5':
@@ -745,7 +745,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.0':
     optional: true
 
-  '@firfi/huly-mcp@0.31.1':
+  '@firfi/huly-mcp@0.32.0':
     dependencies:
       ws: 8.21.0
     transitivePeerDependencies:
