@@ -85,7 +85,7 @@ export const validateConfig = (config: HulyCliConfig): void => {
   if (missing.length > 0) {
     throw new Error(
       `Missing Huly configuration: ${missing.join(", ")}. `
-        + "Set environment variables or pass --config .env."
+        + "Set environment variables or pass --config <path>."
     )
   }
 }

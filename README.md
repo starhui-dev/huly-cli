@@ -47,20 +47,20 @@ npx -y @starhui/huly-cli@latest tools --filter issue --json
 ## 示例
 
 ```bash
-npx -y @starhui/huly-cli@latest --config .env project list --json
-npx -y @starhui/huly-cli@latest --config .env project statuses HULY --json
-npx -y @starhui/huly-cli@latest --config .env issue list --project HULY --status-category active --limit 20 --json
-npx -y @starhui/huly-cli@latest --config .env issue get HULY-123 --project HULY --json
-npx -y @starhui/huly-cli@latest --config .env issue create --project HULY --title "Fix login redirect"
-npx -y @starhui/huly-cli@latest --config .env issue update HULY-123 --project HULY --status Done
-npx -y @starhui/huly-cli@latest --config .env search "login redirect" --json
+npx -y @starhui/huly-cli@latest project list --json
+npx -y @starhui/huly-cli@latest project statuses HULY --json
+npx -y @starhui/huly-cli@latest issue list --project HULY --status-category active --limit 20 --json
+npx -y @starhui/huly-cli@latest issue get HULY-123 --project HULY --json
+npx -y @starhui/huly-cli@latest issue create --project HULY --title "Fix login redirect"
+npx -y @starhui/huly-cli@latest issue update HULY-123 --project HULY --status Done
+npx -y @starhui/huly-cli@latest search "login redirect" --json
 ```
 
 对于没有封装成一级命令的能力，可以直接调用上游 MCP 工具：
 
 ```bash
-npx -y @starhui/huly-cli@latest --config .env call list_projects --data '{"limit":10}' --json
-npx -y @starhui/huly-cli@latest --config .env call get_issue --field project=HULY --field identifier=HULY-123 --json
+npx -y @starhui/huly-cli@latest call list_projects --data '{"limit":10}' --json
+npx -y @starhui/huly-cli@latest call get_issue --field project=HULY --field identifier=HULY-123 --json
 ```
 
 ## 命令

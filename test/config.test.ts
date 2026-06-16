@@ -33,7 +33,7 @@ describe("validateConfig", () => {
 
   it("requires Huly URL, workspace, and auth", () => {
     expect(() => validateConfig({ env: {} })).toThrow(
-      "Missing Huly configuration: HULY_URL, HULY_WORKSPACE, HULY_TOKEN or HULY_EMAIL+HULY_PASSWORD"
+      "Missing Huly configuration: HULY_URL, HULY_WORKSPACE, HULY_TOKEN or HULY_EMAIL+HULY_PASSWORD. Set environment variables or pass --config <path>."
     )
   })
 })
