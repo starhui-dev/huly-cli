@@ -33,6 +33,10 @@ export const createHulyMcpClient = async (config: HulyCliConfig): Promise<HulyMc
     [serverPath],
     {
       ...sanitizeEnv(config.env),
+      // CLI dispatches native Huly tool names directly (get_issue, list_issues, ...).
+      // Force native exposure so every tool stays first-class; the upstream `auto`
+      // default would hide them behind a proxy surface and break that dispatch.
+      HULY_TOOL_MODE: "native",
       LAZY_ENVS: "true",
       MCP_TRANSPORT: "stdio"
     }
