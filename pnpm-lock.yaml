@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@firfi/huly-mcp':
-        specifier: 0.45.0
-        version: 0.45.0
+        specifier: 0.47.0
+        version: 0.47.0
       commander:
         specifier: 15.0.0
         version: 15.0.0
@@ -203,8 +203,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firfi/huly-mcp@0.45.0':
-    resolution: {integrity: sha512-dqXhWRoOhZBRI5aYNCsJMf0GLsashIR1U0cx3QeZ6DrZhUO5zaazkLl+syIaPuYx7JAEaWKPWLLiqqtqVNnTzQ==}
+  '@firfi/huly-mcp@0.47.0':
+    resolution: {integrity: sha512-jIWGsRH+nXJCm442XXNULtlemlBERc1LNC57HATjoT26FeHd+o6roJhEAGz+/6gIp16Zc5qQ+waZiWTVwNA8vQ==}
+    engines: {node: '>=20'}
     hasBin: true
 
   '@formatjs/ecma402-abstract@2.3.6':
@@ -987,7 +988,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.0':
     optional: true
 
-  '@firfi/huly-mcp@0.45.0':
+  '@firfi/huly-mcp@0.47.0':
     dependencies:
       '@hcengineering/activity': 0.7.0
       '@hcengineering/attachment': 0.7.0
