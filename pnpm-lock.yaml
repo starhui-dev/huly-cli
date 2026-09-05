@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@firfi/huly-mcp':
-        specifier: 0.50.0
-        version: 0.50.0
+        specifier: 0.51.0
+        version: 0.51.0
       commander:
         specifier: 15.0.0
         version: 15.0.0
@@ -203,8 +203,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firfi/huly-mcp@0.50.0':
-    resolution: {integrity: sha512-lu9+7nCjJgYccq+v+vwffJ7tN5bRAnxQwLTGK6IeIuO4K70QYiQ02uAN5kxdS1xTNwF0yzlLZkbTvbK7Ocn8Lw==}
+  '@firfi/huly-mcp@0.51.0':
+    resolution: {integrity: sha512-aV/VPgo5P5TS7RPX7kBrlsjXa+SV8CD2hvYiC2Rs1+Vkc/P/Ahaz/4402BIurMGViPiPqMzRL6YIqxnb55UkuA==}
     engines: {node: '>=22.19.0'}
     hasBin: true
 
@@ -273,6 +273,9 @@ packages:
 
   '@hcengineering/gmail@0.7.0':
     resolution: {integrity: sha512-SS7VOqDG8Rmd583oz7FvPxbR8giyH+9Y5PlqgFwPIMwRku5LHLh+/DR+BtPHlE6e/Qrak2f9luxP6LMc4xITmw==}
+
+  '@hcengineering/hr@0.7.0':
+    resolution: {integrity: sha512-ExNzKl4L+hQly7DhLy0qw7tlf2Ezl1OnZzgzf5TAeNTLaeON18uj1cA3J7a1uK8GVpAAV5ld8VnzbArTNwVDRQ==}
 
   '@hcengineering/inventory@0.7.0':
     resolution: {integrity: sha512-s4zKczZxlingtCmvYxxc+2ZgqFTPbKccJZkOFbI0vUr/7BUs2FBCF0z49cL2BtHNCmuxGQ2czMJCZGjNRHR3/w==}
@@ -1003,7 +1006,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.0':
     optional: true
 
-  '@firfi/huly-mcp@0.50.0':
+  '@firfi/huly-mcp@0.51.0':
     dependencies:
       '@hcengineering/activity': 0.7.0
       '@hcengineering/attachment': 0.7.0
@@ -1015,6 +1018,7 @@ snapshots:
       '@hcengineering/core': 0.7.26
       '@hcengineering/document': 0.7.0
       '@hcengineering/gmail': 0.7.0
+      '@hcengineering/hr': 0.7.0
       '@hcengineering/inventory': 0.7.0
       '@hcengineering/love': 0.7.0
       '@hcengineering/mail': 0.7.0
@@ -1205,6 +1209,14 @@ snapshots:
       '@hcengineering/platform': 0.7.423
       '@hcengineering/setting': 0.7.423
       '@hcengineering/ui': 0.7.423
+
+  '@hcengineering/hr@0.7.0':
+    dependencies:
+      '@hcengineering/contact': 0.7.423
+      '@hcengineering/core': 0.7.423
+      '@hcengineering/notification': 0.7.423
+      '@hcengineering/platform': 0.7.423
+      '@hcengineering/view': 0.7.423
 
   '@hcengineering/inventory@0.7.0':
     dependencies:
