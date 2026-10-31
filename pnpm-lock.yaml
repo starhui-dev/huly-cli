@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@firfi/huly-mcp':
-        specifier: 0.55.4
-        version: 0.55.4
+        specifier: 0.55.5
+        version: 0.55.5
       commander:
         specifier: 15.0.0
         version: 15.0.0
@@ -29,14 +29,6 @@ importers:
         version: 4.1.8(@types/node@25.1.0)(vite@8.0.16(@types/node@25.1.0)(esbuild@0.28.0))
 
 packages:
-
-  '@ampproject/remapping@2.3.0':
-    resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
-    engines: {node: '>=6.0.0'}
-
-  '@babel/runtime@7.29.7':
-    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
-    engines: {node: '>=6.9.0'}
 
   '@emnapi/core@1.10.0':
     resolution: {integrity: sha512-yq6OkJ4p82CAfPl0u9mQebQHKPJkY7WrIuk205cTYnYe+k2Z8YBh11FrbRG/H6ihirqcacOgl2BIO8oyMQLeXw==}
@@ -203,170 +195,13 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firfi/huly-mcp@0.55.4':
-    resolution: {integrity: sha512-xLAploGDgMOkrobMEZ2ik83yexhpjY42YpIWnkl0zCuRhPtCD2Kb8uBjkMz6LO+JagWWzEFfU1A33irlJm8/Qw==}
+  '@firfi/huly-mcp@0.55.5':
+    resolution: {integrity: sha512-pxS3eklablh/Gsyx2MVCatf7SfWw+E9R26CycRW79sjpwCmI0h2f8QG4SwCVShLS0LeeIayBpIVNxYoKgfFoLQ==}
     engines: {node: '>=22.19.0'}
     hasBin: true
 
-  '@formatjs/ecma402-abstract@2.3.6':
-    resolution: {integrity: sha512-HJnTFeRM2kVFVr5gr5kH1XP6K0JcJtE7Lzvtr3FS/so5f1kpsqqqxy5JF+FRaO6H2qmcMfAUIox7AJteieRtVw==}
-
-  '@formatjs/fast-memoize@2.2.7':
-    resolution: {integrity: sha512-Yabmi9nSvyOMrlSeGGWDiH7rf3a7sIwplbvo/dlz9WCIjzIQAfy1RMf4S0X3yG724n5Ghu2GmEl5NJIV6O9sZQ==}
-
-  '@formatjs/icu-messageformat-parser@2.11.4':
-    resolution: {integrity: sha512-7kR78cRrPNB4fjGFZg3Rmj5aah8rQj9KPzuLsmcSn4ipLXQvC04keycTI1F7kJYDwIXtT2+7IDEto842CfZBtw==}
-
-  '@formatjs/icu-skeleton-parser@1.8.16':
-    resolution: {integrity: sha512-H13E9Xl+PxBd8D5/6TVUluSpxGNvFSlN/b3coUp0e0JpuWXXnQDiavIpY3NnvSp4xhEMoXyyBvVfdFX8jglOHQ==}
-
-  '@formatjs/intl-localematcher@0.6.2':
-    resolution: {integrity: sha512-XOMO2Hupl0wdd172Y06h6kLpBz6Dv+J4okPLl4LPtzbr8f66WbIoy4ev98EBuZ6ZK4h5ydTN6XneT4QVpD7cdA==}
-
-  '@hcengineering/account-client@0.7.423':
-    resolution: {integrity: sha512-1G9sAMEbiPpf5M19n1RzLX/dz4Rxr0bkXjWfh0iVhWDc9GKgBRzKeLf8Qw+ji+xa8zNHhdgb4TJQUcAG/32ymg==}
-
-  '@hcengineering/activity@0.7.0':
-    resolution: {integrity: sha512-7dNGUV7JBnxAuHs01ArvbpCJxsSAs4b0r+SS64W9R3YHtYp+9RN/UzjNhRL2EME0l+HjtxQwLuGbmkMvAzqWQw==}
-
-  '@hcengineering/activity@0.7.423':
-    resolution: {integrity: sha512-4Jvb1YZAf08YEyAuMxHeP+gyruQAl+83Phl/o9Anz5QPQSQ1/Dq6wvmGAiSgiUppCq94mxytSCxZT0E0/kxsKw==}
-
-  '@hcengineering/analytics@0.7.423':
-    resolution: {integrity: sha512-ZsY4sfoQCjl66QdpVQ8O4ZsurcdN/rL8nyLZWeprYtXWIvmnfLt9D810YNQIjrQHMXAAeVQTshWUa1b73NLmgw==}
-
-  '@hcengineering/attachment@0.7.0':
-    resolution: {integrity: sha512-6GVR9dbI4WNeUzkyRBRzodnVh1shN4pRdRx4icAYDpjGrHjgGE+lHLe7qctHWeILYA6xrM6p8gqHI2niNYDFbg==}
-
-  '@hcengineering/board@0.7.0':
-    resolution: {integrity: sha512-Y8FBX4XKSHLXpM43BeqNBDI4/5dXdUCJTlWGX7odahHqLih96iFsnp0kxr4WcUdCJgqDd6hvxaPQnu3oNeRZNA==}
-
-  '@hcengineering/calendar@0.7.0':
-    resolution: {integrity: sha512-TL4lUWo8zWN7iRgVC2occ0e7wJ44fb6GPEfM8yXlyoux4I43s+2bk7+qcMv6/FhFrmgUYF6+fj/GplBkmw+sqQ==}
-
-  '@hcengineering/card@0.7.0':
-    resolution: {integrity: sha512-8tviVI1Hf8IE1EIMLd+VmWIE3T5wQz1CYIW7Dwd4Vc+1uZllGTYTM3cGT1jDbHWeQCgLcyG/OlGEKlpHl30Tew==}
-
-  '@hcengineering/card@0.7.423':
-    resolution: {integrity: sha512-frP8mk7vvZBQZmr+Gxa92YeIF0jNEf+Gg1rwMG8i3H9wwRei4pSmUMHGpP9gzxwlrvzBWZp1K1i3T/clKbOeaQ==}
-
-  '@hcengineering/chunter@0.7.0':
-    resolution: {integrity: sha512-flNuGYrwQrrtshCB/ro1b9x8X9gB3vAZcvx2C0fDQFdacoLcC5Et0iRXwLtRIxvHqqcc6Fdt5w4tPklS+sW4tw==}
-
-  '@hcengineering/contact@0.7.0':
-    resolution: {integrity: sha512-vrgkI/bZ74Mv/yCIXbv6pVCU/vHYEY8XJ+b2Xl79K4qrKP/+iArHTUtpquU0tqpC8eV5lTRbdrxSbFr6JXzNpw==}
-
-  '@hcengineering/contact@0.7.423':
-    resolution: {integrity: sha512-ozoD3vAJB/7x2cYP3oO15qo98gHRcNgM9r3zZ0zLiC62CNpxEVbsJiVX0wg9FkrJWmRp2oLYkNN5rDvHVQOW+g==}
-
-  '@hcengineering/core@0.7.26':
-    resolution: {integrity: sha512-VUKnNnsl44VJCs/HWFP1KUVUti4/eS4YgLCVWaGjPUzwOiC0cHRGwW+7ukqAlb4b6jTD12Qwa9qdFF3qAPEz9A==}
-
-  '@hcengineering/core@0.7.423':
-    resolution: {integrity: sha512-U4g1jcIbDOz4ZUICgbaDE0imcjJdYf7k0Qe9r5K62karb4Bglzsn74mR1IWtenAtyf7k5LYuWBzP2gQuuZnYIw==}
-
-  '@hcengineering/document@0.7.0':
-    resolution: {integrity: sha512-RaYFnxowKI33DNkisQ7K8bewEaI7zabc0m5vhepx/cCKSffB4aLsQZW9hQqiViBXq7M2Mgki2tkqCTwkTnm9SQ==}
-
-  '@hcengineering/drive@0.7.423':
-    resolution: {integrity: sha512-Mn28w6cQ+S9SCFgP3IOSXUVb/3wlgPPm+vDasZdTSZKFscexiyjjHQM6pz06ux5ytM0CNBgfuNqYRQch4rBIew==}
-
-  '@hcengineering/gmail@0.7.0':
-    resolution: {integrity: sha512-SS7VOqDG8Rmd583oz7FvPxbR8giyH+9Y5PlqgFwPIMwRku5LHLh+/DR+BtPHlE6e/Qrak2f9luxP6LMc4xITmw==}
-
-  '@hcengineering/hr@0.7.0':
-    resolution: {integrity: sha512-ExNzKl4L+hQly7DhLy0qw7tlf2Ezl1OnZzgzf5TAeNTLaeON18uj1cA3J7a1uK8GVpAAV5ld8VnzbArTNwVDRQ==}
-
-  '@hcengineering/inventory@0.7.0':
-    resolution: {integrity: sha512-s4zKczZxlingtCmvYxxc+2ZgqFTPbKccJZkOFbI0vUr/7BUs2FBCF0z49cL2BtHNCmuxGQ2czMJCZGjNRHR3/w==}
-
-  '@hcengineering/love@0.7.0':
-    resolution: {integrity: sha512-oyyMxTv2s1w2usLk4bc429e+V5R1zjaxGDRZzVgsf0DPT5vr3sd1MNi73Nj91ruTPaqmE5bI7fQdG3uRG2MBzg==}
-
-  '@hcengineering/mail@0.7.0':
-    resolution: {integrity: sha512-r5ma2OHnxswFDzb71/hSyO7m+4zEJIOw/tH6+P/M7fc0s1KfNW3JJSZeNLB+kR2QznvV825PhM/j+fvofNP/sg==}
-
-  '@hcengineering/measurements@0.7.423':
-    resolution: {integrity: sha512-miQGTdEr47ha/3cJX3MFbqbfSgnK277yTSCJ+4evTRlEAM1WvcqxBrHB+vDTJxt3enj9hCGdX39BtpLNvDR2gQ==}
-
-  '@hcengineering/notification@0.7.0':
-    resolution: {integrity: sha512-wO3P9XjupSV+qF5/6hqoD3tPL195RJcyC0QqGyKuH5BzZEo1EV5iUWXOHYsO4eNaNy4trj/yfX9G+6DVQudpUg==}
-
-  '@hcengineering/notification@0.7.423':
-    resolution: {integrity: sha512-gGFvvthBmi6074ZA6fs7PlENcdfYWLeXfOOkEPavdIxmNh7ilV/k1yAYNXiAGXBlzpfWWgRPkjlCmK23+tBGXA==}
-
-  '@hcengineering/platform@0.7.423':
-    resolution: {integrity: sha512-X+QYV5vuS4KrRAeLYzv6+eVSEU7MzOe2+Tb4aFFruM6NDDhq38iFQ3qTuKI1cuzgwefWNKKeZh8x41VIIkrF4w==}
-
-  '@hcengineering/preference@0.7.0':
-    resolution: {integrity: sha512-VdmWaR20xu4KhFhRAr86IZ4lB8sPD8DieN0qacIB/EXkqgdYpDov0zCR4SYI1HLSk7YR7bhnEWZXTvGc1N8a6Q==}
-
-  '@hcengineering/preference@0.7.423':
-    resolution: {integrity: sha512-zMdOkbyXw0sSkrSJ7Dah2fywCyQAk7898SypQxMOTobrFxqgtBkVH/R0cVcfByH72ylAT+4tjy7LiWgbDAdNrQ==}
-
-  '@hcengineering/rank@0.7.423':
-    resolution: {integrity: sha512-/Kc4LjpaboHoZGGMl2Bt/IaeQskzeN37VzMBBgv8HbrBmOW8P3Wfbvj5alq6KvyyvtZhnjoODL3zTE20EAYYJg==}
-
-  '@hcengineering/request@0.7.0':
-    resolution: {integrity: sha512-4nJW4HwOoQPvl0FcJ8mWorZxcFN0WrkWHdunu0LbVCLSKqAomLlgZwc414WP4cqoiqCWW/t39Y96jYo9B1KX2w==}
-
-  '@hcengineering/setting@0.7.423':
-    resolution: {integrity: sha512-RXpF9ua98dEUP3NXYkZmKaCIFbUD2mq3Ii6u/5AOx1mpZF15Y04nLYTIQYS3XgqivYunVAoUNWhh4yU1mrMIqw==}
-
-  '@hcengineering/support@0.7.0':
-    resolution: {integrity: sha512-oCjuiWWXEOghutzY9Bpc+vkIIEd/arlFVBmaXzFfM/XeR4J8tZ8ynYKBYoXwV+UFaGczidLdEBYda9HqFU1mHg==}
-
-  '@hcengineering/tags@0.7.0':
-    resolution: {integrity: sha512-iqNNNYLm/23ET6uzw075OhmRL0z605wh4hacTFpCw8BMhYfr3hmOCnR456KXIqZBNQ02gty8yWj0Vt9C3KdkWQ==}
-
-  '@hcengineering/task@0.7.0':
-    resolution: {integrity: sha512-/ARXN6fAyouUzyf2OUVfR/kokMRrVb5RhOCqxNS9b688xBHg8DoDIMkO4RI+0vbkb+S6ZTWQoZjf7zwTHhBO+w==}
-
-  '@hcengineering/telegram@0.7.0':
-    resolution: {integrity: sha512-1IG9u6mZkutb7e/Vp1ePfr8EPV5cGR9Vt/IeFGs97AWNDQWGuScJkrxecx0TnqtQvPCpQgHXEapiC6hmGRkytQ==}
-
-  '@hcengineering/templates@0.7.0':
-    resolution: {integrity: sha512-1tmbv2Aw2/p5T0RPUunc/2s4c8bSdhOYN5NZTKl7KVA1W4RDjpg6rqcgls6IV+BuoIg3FFEWuVHVGin5fJClqg==}
-
-  '@hcengineering/templates@0.7.423':
-    resolution: {integrity: sha512-1N6DVmS0zqJs3DvHNC2TnJf60lyXkf/RzywYCWHWYeZyXD77LzevaTPCvQm5KaPaBrKX/dxXW5jVAVD2BM5zbw==}
-
-  '@hcengineering/theme@0.7.423':
-    resolution: {integrity: sha512-aXFJWiBKiNdUECBuhnpeT9ZPD5B15Kqvl9vA759LvjVXRIs34jkK8RmKDVXtchNa6raj1Rbt5XW2Cn/35b+Twg==}
-
-  '@hcengineering/time@0.7.0':
-    resolution: {integrity: sha512-rvYdAed+Sv1TMwG+M/jRv9wDZBFDIWwLHNR/e1sn8f3KAkvUAKsOBDnnFNE7xKYVMsHFJMIN8+x+8csG11dgTw==}
-
-  '@hcengineering/tracker@0.7.0':
-    resolution: {integrity: sha512-7qA9pHxRhczeMXXQgL1GyM8/uqieG9JwzLBsCXvPt7QW2Nto4nda4/7TKkrt+/UUQKDm+1NmQq7/8ipXuPNN7g==}
-
-  '@hcengineering/ui@0.7.423':
-    resolution: {integrity: sha512-uOSfDG3b69Q6WgzTq62S/tuiobcTZRopxUHxorXsEfO5/iqSqWb4V61eUexmTBCD+3jAEMquqGcNFW956hXcPg==}
-
-  '@hcengineering/view@0.7.0':
-    resolution: {integrity: sha512-qeqBD4mSHSRUqrLPFHWZ0FUDDeJH4S0DDkosVjfZuHYQ7xjlfWCRMlDpVyKhtmNvkTMnb1GLvHzxKxe1gTkl/w==}
-
-  '@hcengineering/view@0.7.423':
-    resolution: {integrity: sha512-9UCXavJ3pUnzWiYZPL+czdfa6PxkGtknub2uaiN6T7pCMjyMZNPh3AoR4c48HDUeO14njoYrb7CzKeCzhYNCMQ==}
-
-  '@hcengineering/workbench@0.7.0':
-    resolution: {integrity: sha512-rhFenp84Mq322phsk7DDkiHVbySaXYizzGME3IIGG5BKkkVndwPXXQpAp9lZ1V6/FOI/jQTE5vwh2jv+ioxGyw==}
-
-  '@hcengineering/workbench@0.7.423':
-    resolution: {integrity: sha512-YFTPPikH/QNv4C0dgnwAZkRohsZTJVrikGbeVHggSr+6J+AeFgmO26/RBTOVPydTu4ZYqXfNOJozAcRBTgVO7w==}
-
-  '@jridgewell/gen-mapping@0.3.13':
-    resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
-
-  '@jridgewell/resolve-uri@3.1.2':
-    resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
-    engines: {node: '>=6.0.0'}
-
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
-
-  '@jridgewell/trace-mapping@0.3.31':
-    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@napi-rs/keyring-darwin-arm64@2.1.1':
     resolution: {integrity: sha512-H6uxAztj6GSDwnh/1JDHCtAqWvBTr+0+FGwOOw+rY568z7vFOqrJTTboePFuAnJSO7kNvq+yuyXJ9B5Ueco4yA==}
@@ -578,9 +413,6 @@ packages:
   '@types/node@25.1.0':
     resolution: {integrity: sha512-t7frlewr6+cbx+9Ohpl0NOTKXZNV9xHRmNOvql47BFJKcEG1CxtxlPEEe+gR9uhVWM4DwhnvTF110mIL4yP9RA==}
 
-  '@types/trusted-types@2.0.7':
-    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
-
   '@vitest/expect@4.1.8':
     resolution: {integrity: sha512-h3nDO677RDLEGlBxyQ5CW8RlMThSKSRLUePLOx09gNIWRL40edgA1GCZSZgf1W55MFAG6/Sw14KeaAnqv0NKdQ==}
 
@@ -613,11 +445,6 @@ packages:
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
 
-  acorn@8.17.0:
-    resolution: {integrity: sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
 
@@ -631,10 +458,6 @@ packages:
   are-we-there-yet@1.1.7:
     resolution: {integrity: sha512-nxwy40TuMiUGqMyRHgCSWZ9FM4VAoRP4xUYSTv5ImRog+h9yISPbVH7H8fASCIzYn9wlEv4zvFL7uKDMCFQm3g==}
     deprecated: This package is no longer supported.
-
-  aria-query@5.3.2:
-    resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
-    engines: {node: '>= 0.4'}
 
   asn1@0.2.6:
     resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==}
@@ -650,18 +473,11 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  autolinker@4.0.0:
-    resolution: {integrity: sha512-fl5Kh6BmEEZx+IWBfEirnRUU5+cOiV0OK7PEt0RBKvJMJ8GaRseIOeDU3FKf4j3CE5HVefcjHmhYPOcaVt0bZw==}
-
   aws-sign2@0.7.0:
     resolution: {integrity: sha512-08kcGqnYf/YmjoRhfxyu+CLxBjUtHLXLXX/vUfx9l2LYzG3c1m61nrpyFUZI6zeS+Li/wWMMidD9KgrqtGq3mA==}
 
   aws4@1.13.2:
     resolution: {integrity: sha512-lHe62zvbTB5eEABUVi/AwVh0ZKY9rMMDhmm+eeyuuUQbQ3+J+fONVQOZyj+DdrvD4BY33uYniyRJ4UJIaSKAfw==}
-
-  axobject-query@4.1.0:
-    resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
-    engines: {node: '>= 0.4'}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -671,9 +487,6 @@ packages:
 
   bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
-
-  blurhash@2.0.5:
-    resolution: {integrity: sha512-cRygWd7kGBQO3VEhPiTgq4Wc43ctsM+o46urrmPOiuAe+07fzlSB9OJVdpgDL0jPqXUVQ9ht7aq7kxOeJHRK+w==}
 
   brace-expansion@1.1.21:
     resolution: {integrity: sha512-9zeA+KLZNNzglF2TPKRQEDyx6Yby7daAkuy8MiPzpXPsYDWi/DRM8jmwUDxokQjYqBpv5DgPiwD4h4ZZSy1Ujw==}
@@ -693,9 +506,6 @@ packages:
     resolution: {integrity: sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA==}
     engines: {node: '>=0.10.0'}
 
-  code-red@1.0.4:
-    resolution: {integrity: sha512-7qJWqItLA8/VPVlKJlFXU+NBlo/qyfs39aJcuMT/2ere32ZqvF5OSxgdM5xOfJJ7O429gg2HM47y8v9P+9wrNw==}
-
   combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
@@ -713,40 +523,18 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  core-js@3.49.0:
-    resolution: {integrity: sha512-es1U2+YTtzpwkxVLwAFdSpaIMyQaq0PBgm3YD1W3Qpsn1NAmO3KSgZfu+oGSWVu6NvLHoHCV/aYcsE5wiB7ALg==}
-
   core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  css-tree@2.3.1:
-    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
-    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
-
-  custom-event-polyfill@1.0.7:
-    resolution: {integrity: sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w==}
-
   dashdash@1.14.1:
     resolution: {integrity: sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g==}
     engines: {node: '>=0.10'}
 
-  date-fns-tz@2.0.1:
-    resolution: {integrity: sha512-fJCG3Pwx8HUoLhkepdsP7Z5RsucUi+ZBOxyM5d0ZZ6c4SdYustq0VMmOu6Wf7bli+yS/Jwp91TOCqn9jMcVrUA==}
-    peerDependencies:
-      date-fns: 2.x
-
-  date-fns@2.30.0:
-    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
-    engines: {node: '>=0.11'}
-
   dbus-next@0.10.2:
     resolution: {integrity: sha512-kLNQoadPstLgKKGIXKrnRsMgtAK/o+ix3ZmcfTfvBHzghiO9yHXpoKImGnB50EXwnfSFaSAullW/7UrSkAISSQ==}
-
-  decimal.js@10.6.0:
-    resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -758,9 +546,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  dompurify@3.4.11:
-    resolution: {integrity: sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==}
 
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -799,10 +584,6 @@ packages:
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
-
-  fast-equals@5.4.0:
-    resolution: {integrity: sha512-jt2DW/aNFNwke7AUd+Z+e6pz39KO5rzdbbFCg2sGafS4mk13MI7Z8O5z9cADNn5lhGODIgLwug6TZO2ctf7kcw==}
-    engines: {node: '>=6.0.0'}
 
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -882,15 +663,9 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  intl-messageformat@10.7.18:
-    resolution: {integrity: sha512-m3Ofv/X/tV8Y3tHXLohcuVuhWKo7BBq62cqY15etqmLxg2DZ34AGGgQDeR+SCta2+zICb1NX83af0GJmbQ1++g==}
-
   is-fullwidth-code-point@1.0.0:
     resolution: {integrity: sha512-1pqUqRjkhPJ9miNq9SwMfdvi6lBJcd6eFxvfaivQhaH3SgisfiuudvFntdKOmxuee/77l+FPjKrQjWvmPjWrRw==}
     engines: {node: '>=0.10.0'}
-
-  is-reference@3.0.3:
-    resolution: {integrity: sha512-ixkJoqQvAP88E6wLydLGGqCJsrFUnqoH6HnaczB8XmDH1oaWU+xxdptvikTgaEhtZ53Ky6YXiBuUI2WXLMCwjw==}
 
   is-typedarray@1.0.0:
     resolution: {integrity: sha512-cyA56iCMHAh5CdzjJIa4aohJyeO1YbwLi3Jc35MmRU6poroFjIGZzUzupGiRPOjgHg9TLu43xbpwXk523fMxKA==}
@@ -922,9 +697,6 @@ packages:
   jsprim@1.4.2:
     resolution: {integrity: sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw==}
     engines: {node: '>=0.6.0'}
-
-  lexorank@1.0.5:
-    resolution: {integrity: sha512-K1B/Yr/gIU0wm68hk/yB0p/mv6xM3ShD5aci42vOwcjof8slG8Kpo3Q7+1WTv7DaRHKWRgLPqrFDt+4GtuFAtA==}
 
   lightningcss-android-arm64@1.32.0:
     resolution: {integrity: sha512-YK7/ClTt4kAK0vo6w3X+Pnm0D2cf2vPHbhOXdoNti1Ga0al1P4TBZhwjATvjNwLEBCnKvjJc2jQgHXH0NEwlAg==}
@@ -1000,12 +772,6 @@ packages:
     resolution: {integrity: sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==}
     engines: {node: '>= 12.0.0'}
 
-  loadjs@4.3.0:
-    resolution: {integrity: sha512-vNX4ZZLJBeDEOBvdr2v/F+0aN5oMuPu7JTqrMwp+DtgK+AryOlpy6Xtm2/HpNr+azEa828oQjOtWsB6iDtSfSQ==}
-
-  locate-character@3.0.0:
-    resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
-
   long@4.0.0:
     resolution: {integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==}
 
@@ -1014,9 +780,6 @@ packages:
 
   map-stream@0.1.0:
     resolution: {integrity: sha512-CkYQrPYZfWnu/DAmVCpTSX/xHpKZ80eKh2lAkyA6AJTef6bW+6JpbQZN5rofum7da+SyN1bi5ctTm+lTfcCW3g==}
-
-  mdn-data@2.0.30:
-    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
   mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
@@ -1099,19 +862,12 @@ packages:
   performance-now@2.1.0:
     resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
 
-  periscopic@3.1.0:
-    resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   picomatch@4.0.4:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
-
-  plyr@3.7.8:
-    resolution: {integrity: sha512-yG/EHDobwbB/uP+4Bm6eUpJ93f8xxHjjk2dYcD1Oqpe1EcuQl5tzzw9Oq+uVAzd2lkM11qZfydSiyIpiB8pgdA==}
-    deprecated: 'Plyr is deprecated and receives security updates only. Use Video.js 10 for new projects. Migration guide: https://videojs.org/docs/framework/html/guides/migrate-from-plyr'
 
   postcss@8.5.15:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
@@ -1130,9 +886,6 @@ packages:
   qs@6.5.5:
     resolution: {integrity: sha512-mzR4sElr1bfCaPJe7m8ilJ6ZXdDaGoObcYR0ZHSsktM/Lt21MVHj5De30GQH2eiZ1qGRTO7LCAzQsUeXTNexWQ==}
     engines: {node: '>=0.6'}
-
-  rangetouch@2.0.1:
-    resolution: {integrity: sha512-sln+pNSc8NGaHoLzwNBssFSf/rSYkqeBXzX1AtJlkJiUaVSJSbRAWJk+4omsXkN+EJalzkZhWQ3th1m0FpR5xA==}
 
   readable-stream@2.3.8:
     resolution: {integrity: sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==}
@@ -1211,10 +964,6 @@ packages:
     resolution: {integrity: sha512-VhumSSbBqDTP8p2ZLKj40UjBCV4+v8bUSEpUb4KjRgWk9pbqGF4REFj6KEagidb2f/M6AzC0EmFyDNGaw9OCzg==}
     engines: {node: '>=0.10.0'}
 
-  svelte@4.2.20:
-    resolution: {integrity: sha512-eeEgGc2DtiUil5ANdtd8vPwt9AgaMdnuUFnPft9F5oMvU/FHu5IHFic+p1dR/UOB7XU2mX2yHW+NcTch4DCh5Q==}
-    engines: {node: '>=16'}
-
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
@@ -1261,9 +1010,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  url-polyfill@1.1.14:
-    resolution: {integrity: sha512-p4f3TTAG6ADVF3mwbXw7hGw+QJyw5CnNGvYh5fCuQQZIiuKUswqcznyV3pGDP9j0TSmC4UvRKm8kl1QsX1diiQ==}
 
   usocket@0.3.0:
     resolution: {integrity: sha512-V/H02RNiaOCJZuPoKont/y12VJaImC6C5xW7OzPFjYu9qnig0yv9hyp9E7Wqjm6d8yZuZouH3NAfDATVMgh2SQ==}
@@ -1405,13 +1151,6 @@ packages:
 
 snapshots:
 
-  '@ampproject/remapping@2.3.0':
-    dependencies:
-      '@jridgewell/gen-mapping': 0.3.13
-      '@jridgewell/trace-mapping': 0.3.31
-
-  '@babel/runtime@7.29.7': {}
-
   '@emnapi/core@1.10.0':
     dependencies:
       '@emnapi/wasi-threads': 1.2.1
@@ -1506,34 +1245,8 @@ snapshots:
   '@esbuild/win32-x64@0.28.0':
     optional: true
 
-  '@firfi/huly-mcp@0.55.4':
+  '@firfi/huly-mcp@0.55.5':
     dependencies:
-      '@hcengineering/activity': 0.7.0
-      '@hcengineering/attachment': 0.7.0
-      '@hcengineering/board': 0.7.0
-      '@hcengineering/calendar': 0.7.0
-      '@hcengineering/card': 0.7.0
-      '@hcengineering/chunter': 0.7.0
-      '@hcengineering/contact': 0.7.0
-      '@hcengineering/core': 0.7.26
-      '@hcengineering/document': 0.7.0
-      '@hcengineering/gmail': 0.7.0
-      '@hcengineering/hr': 0.7.0
-      '@hcengineering/inventory': 0.7.0
-      '@hcengineering/love': 0.7.0
-      '@hcengineering/mail': 0.7.0
-      '@hcengineering/notification': 0.7.0
-      '@hcengineering/preference': 0.7.0
-      '@hcengineering/request': 0.7.0
-      '@hcengineering/support': 0.7.0
-      '@hcengineering/tags': 0.7.0
-      '@hcengineering/task': 0.7.0
-      '@hcengineering/telegram': 0.7.0
-      '@hcengineering/templates': 0.7.0
-      '@hcengineering/time': 0.7.0
-      '@hcengineering/tracker': 0.7.0
-      '@hcengineering/view': 0.7.0
-      '@hcengineering/workbench': 0.7.0
       '@napi-rs/keyring': 2.1.1
       dbus-next: 0.10.2
       ws: 8.21.0
@@ -1541,406 +1254,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@formatjs/ecma402-abstract@2.3.6':
-    dependencies:
-      '@formatjs/fast-memoize': 2.2.7
-      '@formatjs/intl-localematcher': 0.6.2
-      decimal.js: 10.6.0
-      tslib: 2.8.1
-
-  '@formatjs/fast-memoize@2.2.7':
-    dependencies:
-      tslib: 2.8.1
-
-  '@formatjs/icu-messageformat-parser@2.11.4':
-    dependencies:
-      '@formatjs/ecma402-abstract': 2.3.6
-      '@formatjs/icu-skeleton-parser': 1.8.16
-      tslib: 2.8.1
-
-  '@formatjs/icu-skeleton-parser@1.8.16':
-    dependencies:
-      '@formatjs/ecma402-abstract': 2.3.6
-      tslib: 2.8.1
-
-  '@formatjs/intl-localematcher@0.6.2':
-    dependencies:
-      tslib: 2.8.1
-
-  '@hcengineering/account-client@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-
-  '@hcengineering/activity@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/activity@0.7.423':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/analytics@0.7.423':
-    dependencies:
-      '@hcengineering/platform': 0.7.423
-
-  '@hcengineering/attachment@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/workbench': 0.7.423
-
-  '@hcengineering/board@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/tags': 0.7.0
-      '@hcengineering/task': 0.7.0
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/calendar@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/setting': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/card@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/card@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/chunter@0.7.0':
-    dependencies:
-      '@hcengineering/activity': 0.7.423
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-      '@hcengineering/workbench': 0.7.423
-      fast-equals: 5.4.0
-
-  '@hcengineering/contact@0.7.0':
-    dependencies:
-      '@hcengineering/card': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/templates': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/contact@0.7.423':
-    dependencies:
-      '@hcengineering/card': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/templates': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/core@0.7.26':
-    dependencies:
-      '@hcengineering/analytics': 0.7.423
-      '@hcengineering/measurements': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      fast-equals: 5.4.0
-
-  '@hcengineering/core@0.7.423':
-    dependencies:
-      '@hcengineering/analytics': 0.7.423
-      '@hcengineering/measurements': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      fast-equals: 5.4.0
-
-  '@hcengineering/document@0.7.0':
-    dependencies:
-      '@hcengineering/attachment': 0.7.0
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/drive@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/gmail@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/setting': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/hr@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/inventory@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-
-  '@hcengineering/love@0.7.0':
-    dependencies:
-      '@hcengineering/calendar': 0.7.0
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/drive': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-      '@hcengineering/workbench': 0.7.423
-
-  '@hcengineering/mail@0.7.0':
-    dependencies:
-      '@hcengineering/card': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-
-  '@hcengineering/measurements@0.7.423': {}
-
-  '@hcengineering/notification@0.7.0':
-    dependencies:
-      '@hcengineering/activity': 0.7.423
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/setting': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/notification@0.7.423':
-    dependencies:
-      '@hcengineering/activity': 0.7.423
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/setting': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/platform@0.7.423':
-    dependencies:
-      intl-messageformat: 10.7.18
-
-  '@hcengineering/preference@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/preference@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/rank@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      lexorank: 1.0.5
-
-  '@hcengineering/request@0.7.0':
-    dependencies:
-      '@hcengineering/chunter': 0.7.0
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/setting@0.7.423':
-    dependencies:
-      '@hcengineering/account-client': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/templates': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/support@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-
-  '@hcengineering/tags@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/task@0.7.0':
-    dependencies:
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/rank': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/telegram@0.7.0':
-    dependencies:
-      '@hcengineering/activity': 0.7.423
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/setting': 0.7.423
-      '@hcengineering/templates': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/templates@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/templates@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/theme@0.7.423':
-    dependencies:
-      '@hcengineering/analytics': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      svelte: 4.2.20
-
-  '@hcengineering/time@0.7.0':
-    dependencies:
-      '@hcengineering/calendar': 0.7.0
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/rank': 0.7.423
-      '@hcengineering/task': 0.7.0
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/tracker@0.7.0':
-    dependencies:
-      '@hcengineering/attachment': 0.7.0
-      '@hcengineering/chunter': 0.7.0
-      '@hcengineering/contact': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/tags': 0.7.0
-      '@hcengineering/task': 0.7.0
-      '@hcengineering/time': 0.7.0
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-      lexorank: 1.0.5
-
-  '@hcengineering/ui@0.7.423':
-    dependencies:
-      '@hcengineering/analytics': 0.7.423
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/theme': 0.7.423
-      autolinker: 4.0.0
-      blurhash: 2.0.5
-      date-fns: 2.30.0
-      date-fns-tz: 2.0.1(date-fns@2.30.0)
-      dompurify: 3.4.11
-      fast-equals: 5.4.0
-      plyr: 3.7.8
-      svelte: 4.2.20
-
-  '@hcengineering/view@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/view@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-
-  '@hcengineering/workbench@0.7.0':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@hcengineering/workbench@0.7.423':
-    dependencies:
-      '@hcengineering/core': 0.7.423
-      '@hcengineering/notification': 0.7.423
-      '@hcengineering/platform': 0.7.423
-      '@hcengineering/preference': 0.7.423
-      '@hcengineering/ui': 0.7.423
-      '@hcengineering/view': 0.7.423
-
-  '@jridgewell/gen-mapping@0.3.13':
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.31
-
-  '@jridgewell/resolve-uri@3.1.2': {}
-
   '@jridgewell/sourcemap-codec@1.5.5': {}
-
-  '@jridgewell/trace-mapping@0.3.31':
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.5
 
   '@napi-rs/keyring-darwin-arm64@2.1.1':
     optional: true
@@ -2075,9 +1389,6 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/trusted-types@2.0.7':
-    optional: true
-
   '@vitest/expect@4.1.8':
     dependencies:
       '@standard-schema/spec': 1.1.0
@@ -2122,8 +1433,6 @@ snapshots:
   abbrev@1.1.1:
     optional: true
 
-  acorn@8.17.0: {}
-
   ajv@6.15.0:
     dependencies:
       fast-deep-equal: 3.1.3
@@ -2144,8 +1453,6 @@ snapshots:
       readable-stream: 2.3.8
     optional: true
 
-  aria-query@5.3.2: {}
-
   asn1@0.2.6:
     dependencies:
       safer-buffer: 2.1.2
@@ -2159,17 +1466,11 @@ snapshots:
   asynckit@0.4.0:
     optional: true
 
-  autolinker@4.0.0:
-    dependencies:
-      tslib: 2.8.1
-
   aws-sign2@0.7.0:
     optional: true
 
   aws4@1.13.2:
     optional: true
-
-  axobject-query@4.1.0: {}
 
   balanced-match@1.0.2:
     optional: true
@@ -2183,8 +1484,6 @@ snapshots:
     dependencies:
       file-uri-to-path: 1.0.0
     optional: true
-
-  blurhash@2.0.5: {}
 
   brace-expansion@1.1.21:
     dependencies:
@@ -2203,14 +1502,6 @@ snapshots:
   code-point-at@1.1.0:
     optional: true
 
-  code-red@1.0.4:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
-      '@types/estree': 1.0.9
-      acorn: 8.17.0
-      estree-walker: 3.0.3
-      periscopic: 3.1.0
-
   combined-stream@1.0.8:
     dependencies:
       delayed-stream: 1.0.0
@@ -2226,33 +1517,16 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  core-js@3.49.0: {}
-
   core-util-is@1.0.2:
     optional: true
 
   core-util-is@1.0.3:
     optional: true
 
-  css-tree@2.3.1:
-    dependencies:
-      mdn-data: 2.0.30
-      source-map-js: 1.2.1
-
-  custom-event-polyfill@1.0.7: {}
-
   dashdash@1.14.1:
     dependencies:
       assert-plus: 1.0.0
     optional: true
-
-  date-fns-tz@2.0.1(date-fns@2.30.0):
-    dependencies:
-      date-fns: 2.30.0
-
-  date-fns@2.30.0:
-    dependencies:
-      '@babel/runtime': 7.29.7
 
   dbus-next@0.10.2:
     dependencies:
@@ -2266,8 +1540,6 @@ snapshots:
     optionalDependencies:
       usocket: 0.3.0
 
-  decimal.js@10.6.0: {}
-
   delayed-stream@1.0.0:
     optional: true
 
@@ -2275,10 +1547,6 @@ snapshots:
     optional: true
 
   detect-libc@2.1.2: {}
-
-  dompurify@3.4.11:
-    optionalDependencies:
-      '@types/trusted-types': 2.0.7
 
   duplexer@0.1.2: {}
 
@@ -2346,8 +1614,6 @@ snapshots:
 
   fast-deep-equal@3.1.3:
     optional: true
-
-  fast-equals@5.4.0: {}
 
   fast-json-stable-stringify@2.1.0:
     optional: true
@@ -2442,21 +1708,10 @@ snapshots:
   inherits@2.0.4:
     optional: true
 
-  intl-messageformat@10.7.18:
-    dependencies:
-      '@formatjs/ecma402-abstract': 2.3.6
-      '@formatjs/fast-memoize': 2.2.7
-      '@formatjs/icu-messageformat-parser': 2.11.4
-      tslib: 2.8.1
-
   is-fullwidth-code-point@1.0.0:
     dependencies:
       number-is-nan: 1.0.1
     optional: true
-
-  is-reference@3.0.3:
-    dependencies:
-      '@types/estree': 1.0.9
 
   is-typedarray@1.0.0:
     optional: true
@@ -2491,8 +1746,6 @@ snapshots:
       json-schema: 0.4.0
       verror: 1.10.0
     optional: true
-
-  lexorank@1.0.5: {}
 
   lightningcss-android-arm64@1.32.0:
     optional: true
@@ -2543,10 +1796,6 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.32.0
       lightningcss-win32-x64-msvc: 1.32.0
 
-  loadjs@4.3.0: {}
-
-  locate-character@3.0.0: {}
-
   long@4.0.0: {}
 
   magic-string@0.30.21:
@@ -2554,8 +1803,6 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   map-stream@0.1.0: {}
-
-  mdn-data@2.0.30: {}
 
   mime-db@1.52.0:
     optional: true
@@ -2647,23 +1894,9 @@ snapshots:
   performance-now@2.1.0:
     optional: true
 
-  periscopic@3.1.0:
-    dependencies:
-      '@types/estree': 1.0.9
-      estree-walker: 3.0.3
-      is-reference: 3.0.3
-
   picocolors@1.1.1: {}
 
   picomatch@4.0.4: {}
-
-  plyr@3.7.8:
-    dependencies:
-      core-js: 3.49.0
-      custom-event-polyfill: 1.0.7
-      loadjs: 4.3.0
-      rangetouch: 2.0.1
-      url-polyfill: 1.1.14
 
   postcss@8.5.15:
     dependencies:
@@ -2684,8 +1917,6 @@ snapshots:
 
   qs@6.5.5:
     optional: true
-
-  rangetouch@2.0.1: {}
 
   readable-stream@2.3.8:
     dependencies:
@@ -2813,23 +2044,6 @@ snapshots:
       ansi-regex: 2.1.1
     optional: true
 
-  svelte@4.2.20:
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.31
-      '@types/estree': 1.0.9
-      acorn: 8.17.0
-      aria-query: 5.3.2
-      axobject-query: 4.1.0
-      code-red: 1.0.4
-      css-tree: 2.3.1
-      estree-walker: 3.0.3
-      is-reference: 3.0.3
-      locate-character: 3.0.0
-      magic-string: 0.30.21
-      periscopic: 3.1.0
-
   tar@6.2.1:
     dependencies:
       chownr: 2.0.0
@@ -2859,7 +2073,8 @@ snapshots:
       punycode: 2.3.1
     optional: true
 
-  tslib@2.8.1: {}
+  tslib@2.8.1:
+    optional: true
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -2877,8 +2092,6 @@ snapshots:
     dependencies:
       punycode: 2.3.1
     optional: true
-
-  url-polyfill@1.1.14: {}
 
   usocket@0.3.0:
     dependencies:
