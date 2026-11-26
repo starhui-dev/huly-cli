@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@firfi/huly-mcp':
-        specifier: 0.56.1
-        version: 0.56.1
+        specifier: 0.57.0
+        version: 0.57.0
       commander:
         specifier: 15.0.0
         version: 15.0.0
@@ -195,8 +195,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@firfi/huly-mcp@0.56.1':
-    resolution: {integrity: sha512-n/b6ut7XQVqdlQrlk93t0DVZXRJlUzV4DxorEQ5hu0GRS6b3RRBXLukr0HwOgcQSoMx/VSnTUJcwRG3+Zov7rA==}
+  '@firfi/huly-mcp@0.57.0':
+    resolution: {integrity: sha512-O0UDMZ6sSlBOA5ckCbOpulSNrJ/cxgmWCzn792vchWuVCmh9eGehWZKAGJooZkkCrQjStNW5t7ZGBW92SDdL8w==}
     engines: {node: '>=22.19.0'}
     hasBin: true
 
@@ -1245,7 +1245,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.0':
     optional: true
 
-  '@firfi/huly-mcp@0.56.1':
+  '@firfi/huly-mcp@0.57.0':
     dependencies:
       '@napi-rs/keyring': 2.1.1
       dbus-next: 0.10.2
